@@ -8,4 +8,5 @@ target 'Games' do
   # Pods for Games
   pod 'SnapKit', '~> 5.6.0'
   pod 'Carbon'
+  pod 'SDWebImage', '~> 5.0'
 end
