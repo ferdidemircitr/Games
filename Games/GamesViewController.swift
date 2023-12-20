@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class GamesViewController: UIViewController {
 
@@ -13,6 +14,5 @@ class GamesViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
   }
-
 }
 
