@@ -10,8 +10,8 @@ import Carbon
 
 extension GamesViewController {
   enum State {
+    case render(_ section: [Section])
     case addTopView
     case hiddenTopView
   }
 }
-

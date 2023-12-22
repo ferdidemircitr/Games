@@ -19,6 +19,7 @@ class GamesViewController: UIViewController {
   private lazy var tableView: UITableView = {
     let tableView = UITableView()
     tableView.backgroundColor = .clear
+    tableView.separatorStyle = .none
     return tableView
   }()
   
@@ -38,6 +39,8 @@ class GamesViewController: UIViewController {
     viewModel.stateChangeHandler = { [weak self] state in
       guard let self = self else { return }
       switch state {
+      case .render(let sections):
+        self.render(sections)
       case .addTopView:
         self.configureTopView()
       case .hiddenTopView:
