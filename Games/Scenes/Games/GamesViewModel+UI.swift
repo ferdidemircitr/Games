@@ -21,12 +21,19 @@ public extension GamesViewModel {
     nodes.append(makeGameItemNode())
     nodes.append(SpacingComponent(20).toCellNode())
     nodes.append(makeGameItemNode())
+    nodes.append(SpacingComponent(20).toCellNode())
+    nodes.append(makeActivityIndicatorViewNode())
     return Section(id: "GameListSection", cells: nodes)
   }
   
   private func makeGameItemNode() -> CellNode {
     let model = GameItemView()
     let node = CellNode(id: "GameItemView", model)
+    return node
+  }
+  private func makeActivityIndicatorViewNode() -> CellNode {
+    let model = ActivityIndicatorView()
+    let node = CellNode(id: "ActivityIndicatorView", model)
     return node
   }
 }

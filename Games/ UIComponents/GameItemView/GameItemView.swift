@@ -69,7 +69,7 @@ class GameItemView: UIView, Component {
   }
   
   func referenceSize(in bounds: CGRect) -> CGSize? {
-    return CGSize(width: bounds.width, height: 134)
+    CGSize(width: bounds.width, height: 134)
   }
   
 }
@@ -77,11 +77,13 @@ class GameItemView: UIView, Component {
 private extension GameItemView {
   func setupViews() {
     backgroundColor = .white
-    addSubview(gamesImageView)
-    addSubview(titleLabel)
-    addSubview(metacritic)
-    addSubview(metacriticValue)
-    addSubview(genre)
+    addSubviews(
+      gamesImageView,
+      titleLabel,
+      metacritic,
+      metacriticValue,
+      genre
+    )
     setupConstraints()
   }
   
