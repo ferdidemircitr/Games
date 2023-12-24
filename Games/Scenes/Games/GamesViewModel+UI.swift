@@ -18,22 +18,17 @@ public extension GamesViewModel {
   
   private func makeGameListSection() -> Section {
     var nodes: [CellNode] = []
-    nodes.append(makeGameItemNode())
-    nodes.append(SpacingComponent(20).toCellNode())
-    nodes.append(makeGameItemNode())
-    nodes.append(SpacingComponent(20).toCellNode())
-    nodes.append(makeActivityIndicatorViewNode())
+    gamesList?.forEach({ game in
+      print(game.name)
+      nodes.append(makeGameItemNode(item: game))
+      nodes.append(SpacingComponent(20).toCellNode())
+    })
     return Section(id: "GameListSection", cells: nodes)
   }
   
-  private func makeGameItemNode() -> CellNode {
-    let model = GameItemView()
-    let node = CellNode(id: "GameItemView", model)
-    return node
-  }
-  private func makeActivityIndicatorViewNode() -> CellNode {
-    let model = ActivityIndicatorView()
-    let node = CellNode(id: "ActivityIndicatorView", model)
+  private func makeGameItemNode(item: Game) -> CellNode {
+    let component = GameItemView(item: item)
+    let node = CellNode(id: item.id, component)
     return node
   }
 }

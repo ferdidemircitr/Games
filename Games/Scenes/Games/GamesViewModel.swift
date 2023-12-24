@@ -10,4 +10,5 @@ import Carbon
 
 public final class GamesViewModel {
   var stateChangeHandler: Callback<GamesViewController.State>?
+  var gamesList: [Game]?
 }

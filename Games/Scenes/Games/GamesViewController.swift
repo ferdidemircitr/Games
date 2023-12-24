@@ -31,7 +31,7 @@ class GamesViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     bindState()
-    viewModel.loadUI()
+    viewModel.getGames()
     configureView()
   }
   
@@ -43,7 +43,7 @@ class GamesViewController: UIViewController {
         self.render(sections)
       case .addTopView:
         self.configureTopView()
-      case .hiddenTopView:
+      case .removeTopView:
         self.hiddenTopView()
       }
     }
@@ -55,7 +55,7 @@ class GamesViewController: UIViewController {
   
   func configureView() {
     view.backgroundColor = UIColor(red: 0.953, green: 0.953, blue: 0.953, alpha: 1)
-    view.addSubviews(tableView,searchContainerView)
+    view.addSubviews(tableView)
     renderer.target = tableView
     configureNavigation()
     configureConstraints()
@@ -74,16 +74,9 @@ class GamesViewController: UIViewController {
   private func configureTopView() {
     searchBar.delegate = self
     searchBar.placeholder = "Search for the games"
+    view.addSubview(searchContainerView)
     searchContainerView.addSubview(searchBar)
-  }
-  
-  private func hiddenTopView() {
-    searchContainerView.snp.updateConstraints { make in
-      make.height.equalTo(0)
-    }
-  }
-  
-  func configureConstraints() {
+    
     searchContainerView.snp.makeConstraints { make in
       make.top.equalTo(view.safeAreaLayoutGuide)
       make.leading.trailing.equalToSuperview()
@@ -94,8 +87,17 @@ class GamesViewController: UIViewController {
       make.edges.equalToSuperview()
     }
     
+  }
+  
+  private func hiddenTopView() {
+    searchContainerView.snp.updateConstraints { make in
+      make.height.equalTo(0)
+    }
+  }
+  
+  func configureConstraints() {
     tableView.snp.makeConstraints { make in
-      make.top.equalTo(searchContainerView.snp.bottom)
+      make.top.equalTo(view.safeAreaLayoutGuide).offset(25)
       make.leading.trailing.bottom.equalToSuperview()
     }
   }
@@ -103,5 +105,6 @@ class GamesViewController: UIViewController {
 
 extension GamesViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    print(searchText)
   }
 }
