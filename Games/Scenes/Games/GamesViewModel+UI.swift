@@ -19,7 +19,6 @@ public extension GamesViewModel {
   private func makeGameListSection() -> Section {
     var nodes: [CellNode] = []
     gamesList?.forEach({ game in
-      print(game.name)
       nodes.append(makeGameItemNode(item: game))
       nodes.append(SpacingComponent(20).toCellNode())
     })
@@ -27,8 +26,9 @@ public extension GamesViewModel {
   }
   
   private func makeGameItemNode(item: Game) -> CellNode {
-    let component = GameItemView(item: item)
-    let node = CellNode(id: item.id, component)
+    let component = GameItemView()
+    component.item = item
+    var node = CellNode(id: item.id, component)
     return node
   }
 }

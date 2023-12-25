@@ -12,15 +12,16 @@ import SDWebImage
 
 class GameItemView: UIView, Component {
   
+  var item: Game?
+  
   private lazy var backgroundImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFill
-    imageView.backgroundColor = .red
     imageView.layer.masksToBounds = true
     return imageView
   }()
   
-  let titleLabel: UILabel = {
+  private lazy var titleLabel: UILabel = {
     let label = UILabel()
     label.font = UIFont.boldSystemFont(ofSize: 20)
     label.numberOfLines = 2
@@ -48,23 +49,34 @@ class GameItemView: UIView, Component {
     return label
   }()
   
-  public init(item: Game) {
+  
+  public init() {
     super.init(frame: .zero)
     setupViews()
-    configure(item: item)
   }
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
   
-  
   func renderContent() -> GameItemView {
     return self
   }
   
   func render(in content: GameItemView) {
+    guard let item = item else { return }
     
+    content.titleLabel.text = content.item?.name
+    
+    guard let url = URL(string: item.background_image) else { return }
+    content.backgroundImageView.sd_setImage(with: url, completed: nil)
+    content.titleLabel.text = item.name
+    content.metacriticValueLabel.text = "\(item.metacritic)"
+    
+    guard let genres = item.genres else { return }
+    let genreNames = genres.map { $0.name }
+    let combinedGenreNames = genreNames.joined(separator: ", ")
+    content.genresLabel.text = combinedGenreNames
   }
   
   func referenceSize(in bounds: CGRect) -> CGSize? {
@@ -83,20 +95,6 @@ private extension GameItemView {
       genresLabel
     )
     setupConstraints()
-  }
-  
-  func configure(item: Game) {
-    
-    guard let url = URL(string: item.background_image) else { return }
-    
-    backgroundImageView.sd_setImage(with: url, completed: nil)
-    titleLabel.text = item.name
-    metacriticValueLabel.text = "\(item.metacritic)"
-    
-    guard let genres = item.genres else { return }
-    let genreNames = genres.map { $0.name }
-    let combinedGenreNames = genreNames.joined(separator: ", ")
-    self.genresLabel.text = combinedGenreNames
   }
   
   func setupConstraints() {
