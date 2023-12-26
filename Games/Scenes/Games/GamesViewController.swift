@@ -105,7 +105,7 @@ class GamesViewController: UIViewController {
 
 extension GamesViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    print(searchText)
+    viewModel.searchGames(query: searchText)
   }
 }
 

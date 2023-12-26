@@ -13,7 +13,7 @@ extension GamesViewModel {
     NetworkManager.shared.routerRequest(request: Router.getGames) { (result: Result<GameResponse, Error>) in
       switch result {
       case .success(let response):
-        self.gamesList = response.results
+        self.allGames = response.results
         self.loadUI()
       case .failure(let error):
         print(error.localizedDescription)
