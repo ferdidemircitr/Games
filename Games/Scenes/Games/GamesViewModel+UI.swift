@@ -18,17 +18,34 @@ public extension GamesViewModel {
   
   private func makeGameListSection() -> Section {
     var nodes: [CellNode] = []
-    gamesList?.forEach({ game in
-      nodes.append(makeGameItemNode(item: game))
-      nodes.append(SpacingComponent(20).toCellNode())
-    })
+    if isSearching {
+      if filteredGames?.count == 0 {
+        // TODO: - Boş olma durumu için bir sonraki branch'te componentview yapılacak
+      }
+      filteredGames?.forEach({ game in
+        nodes.append(makeGameItemNode(item: game))
+        nodes.append(SpacingComponent(20).toCellNode())
+      })
+    } else {
+      allGames?.forEach({ game in
+        nodes.append(makeGameItemNode(item: game))
+        nodes.append(SpacingComponent(20).toCellNode())
+      })
+    }
     return Section(id: "GameListSection", cells: nodes)
   }
   
   private func makeGameItemNode(item: Game) -> CellNode {
     let component = GameItemView()
     component.item = item
-    var node = CellNode(id: item.id, component)
+    let node = CellNode(id: item.id, component)
+    return node
+  }
+  
+  private func makeNotSearchNode(item: Game) -> CellNode {
+    let component = GameItemView()
+    component.item = item
+    let node = CellNode(id: item.id, component)
     return node
   }
 }
