@@ -13,5 +13,6 @@ extension GamesViewController {
     case render(_ section: [Section])
     case addTopView
     case removeTopView
+    case addLoadingIndicator
   }
 }

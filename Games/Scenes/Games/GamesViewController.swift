@@ -45,6 +45,8 @@ class GamesViewController: UIViewController {
         self.configureTopView()
       case .removeTopView:
         self.hiddenTopView()
+      case .addLoadingIndicator:
+        self.viewModel.loadActivityIndicatorUI()
       }
     }
   }
