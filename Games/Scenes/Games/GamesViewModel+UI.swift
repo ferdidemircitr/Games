@@ -19,20 +19,40 @@ public extension GamesViewModel {
   private func makeGameListSection() -> Section {
     var nodes: [CellNode] = []
     if isSearching {
-      if filteredGames?.count == 0 {
-        // TODO: - Boş olma durumu için bir sonraki branch'te componentview yapılacak
-      }
-      filteredGames?.forEach({ game in
-        nodes.append(makeGameItemNode(item: game))
-        nodes.append(SpacingComponent(20).toCellNode())
-      })
+      nodes.append(contentsOf: makeNodesForSearchResults())
     } else {
-      allGames?.forEach({ game in
-        nodes.append(makeGameItemNode(item: game))
-        nodes.append(SpacingComponent(20).toCellNode())
-      })
+      nodes.append(contentsOf: makeNodesForAllGames())
     }
     return Section(id: "GameListSection", cells: nodes)
+  }
+  
+  
+  
+  private func makeNodesForSearchResults() -> [CellNode] {
+      guard let filteredGames = filteredGames else {
+          return [makeEmptyStateViewNode(message: Const.noServiceResult)]
+      }
+
+      if filteredGames.isEmpty {
+          return [makeEmptyStateViewNode(message: Const.noSearchResult)]
+      }
+
+      return filteredGames.flatMap { game in
+          [makeGameItemNode(item: game), SpacingComponent(20).toCellNode()]
+      }
+  }
+
+  private func makeNodesForAllGames() -> [CellNode] {
+      guard let allGames = allGames else {
+          return [makeEmptyStateViewNode(message: Const.noServiceResult)]
+      }
+
+      return allGames.flatMap { game in
+          [
+            makeGameItemNode(item: game),
+           SpacingComponent(20).toCellNode()
+          ]
+      }
   }
   
   private func makeGameItemNode(item: Game) -> CellNode {
@@ -46,6 +66,13 @@ public extension GamesViewModel {
     let component = GameItemView()
     component.item = item
     let node = CellNode(id: item.id, component)
+    return node
+  }
+  
+  private func makeEmptyStateViewNode(message: String) -> CellNode {
+    let component = EmptyStateView()
+    component.message = message
+    let node = CellNode(id: "EmptyStateViewNode", component)
     return node
   }
 }
