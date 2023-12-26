@@ -27,6 +27,7 @@
 		81E280492B3449E400C22BA5 /* GamesViewController+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E280482B3449E400C22BA5 /* GamesViewController+State.swift */; };
 		81E2804C2B345C8100C22BA5 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2804B2B345C8100C22BA5 /* Typealias.swift */; };
 		81E2804E2B346D1100C22BA5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2804D2B346D1100C22BA5 /* UIView+Extensions.swift */; };
+		81F25C392B3AC9BF004EDFD3 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F25C382B3AC9BF004EDFD3 /* EmptyStateView.swift */; };
 		F5FF96F94AB8D6DC1C12C931 /* Pods_Games.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D992781969221AE528E04E4 /* Pods_Games.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		81E280482B3449E400C22BA5 /* GamesViewController+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GamesViewController+State.swift"; sourceTree = "<group>"; };
 		81E2804B2B345C8100C22BA5 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		81E2804D2B346D1100C22BA5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		81F25C382B3AC9BF004EDFD3 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 		81E280412B3318B900C22BA5 /*  UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				81F25C372B3AC99B004EDFD3 /* EmptyStateView */,
 				8122444E2B34828A005DB969 /* CarbonComponents */,
 				812244542B3572E6005DB969 /* ActivityIndicatorView */,
 				812244512B3485B4005DB969 /* GameItemView */,
@@ -219,6 +222,14 @@
 				81E2804D2B346D1100C22BA5 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		81F25C372B3AC99B004EDFD3 /* EmptyStateView */ = {
+			isa = PBXGroup;
+			children = (
+				81F25C382B3AC9BF004EDFD3 /* EmptyStateView.swift */,
+			);
+			path = EmptyStateView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +348,7 @@
 			files = (
 				812244582B3577C8005DB969 /* GamesViewModel+Service.swift in Sources */,
 				81E280472B343AE800C22BA5 /* GamesViewModel+UI.swift in Sources */,
+				81F25C392B3AC9BF004EDFD3 /* EmptyStateView.swift in Sources */,
 				8122444D2B3481AF005DB969 /* SpacingComponent.swift in Sources */,
 				812244502B3482A9005DB969 /* IdentifiableComponent.swift in Sources */,
 				8119A9AC2B31773F008B2412 /* GamesViewController.swift in Sources */,

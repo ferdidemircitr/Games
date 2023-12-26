@@ -11,6 +11,8 @@ import Carbon
 public final class GamesViewModel {
   enum Const {
     static let minimumSearchValue = 3
+    static let noSearchResult = "No game has been searched."
+    static let noServiceResult = "No service results."
   }
   
   var stateChangeHandler: Callback<GamesViewController.State>?
