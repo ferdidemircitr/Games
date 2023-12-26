@@ -16,6 +16,12 @@ public extension GamesViewModel {
     stateChangeHandler?(.render(sections))
   }
   
+  func loadActivityIndicatorUI() {
+    var sections: [Section] = []
+    sections.append(makeActivityIndicatorSection())
+    stateChangeHandler?(.render(sections))
+  }
+  
   private func makeGameListSection() -> Section {
     var nodes: [CellNode] = []
     if isSearching {
@@ -26,7 +32,11 @@ public extension GamesViewModel {
     return Section(id: "GameListSection", cells: nodes)
   }
   
-  
+  private func makeActivityIndicatorSection() -> Section {
+    var nodes: [CellNode] = []
+    nodes.append(makeActivityIndicatorViewNode())
+    return Section(id: "ActivityIndicatorSection", cells: nodes)
+  }
   
   private func makeNodesForSearchResults() -> [CellNode] {
       guard let filteredGames = filteredGames else {
@@ -38,7 +48,10 @@ public extension GamesViewModel {
       }
 
       return filteredGames.flatMap { game in
-          [makeGameItemNode(item: game), SpacingComponent(20).toCellNode()]
+          [
+            makeGameItemNode(item: game),
+            SpacingComponent(20).toCellNode()
+          ]
       }
   }
 
@@ -50,7 +63,7 @@ public extension GamesViewModel {
       return allGames.flatMap { game in
           [
             makeGameItemNode(item: game),
-           SpacingComponent(20).toCellNode()
+            SpacingComponent(20).toCellNode()
           ]
       }
   }
@@ -73,6 +86,12 @@ public extension GamesViewModel {
     let component = EmptyStateView()
     component.message = message
     let node = CellNode(id: "EmptyStateViewNode", component)
+    return node
+  }
+  
+  private func makeActivityIndicatorViewNode() -> CellNode {
+    let component = ActivityIndicatorView()
+    let node = CellNode(id: "ActivityIndicatorViewNode", component)
     return node
   }
 }

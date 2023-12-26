@@ -9,11 +9,10 @@ import SnapKit
 import Carbon
 
 class ActivityIndicatorView: UIView, Component {
-
+  
   private lazy var activityIndicator: UIActivityIndicatorView = {
     let indicator = UIActivityIndicatorView(style: .medium)
     indicator.hidesWhenStopped = true
-    indicator.startAnimating()
     return indicator
   }()
   
@@ -21,13 +20,9 @@ class ActivityIndicatorView: UIView, Component {
     let label = UILabel()
     label.text = "loading"
     label.textColor = UIColor(red: 0.541, green: 0.541, blue: 0.561, alpha: 1)
-
+    
     return label
   }()
-  func renderContent() -> UIView {
-    setupViews()
-    return ActivityIndicatorView()
-  }
   
   public init() {
     super.init(frame: .zero)
@@ -38,8 +33,12 @@ class ActivityIndicatorView: UIView, Component {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func render(in content: UIView) {
-    
+  func renderContent() -> ActivityIndicatorView {
+    return ActivityIndicatorView()
+  }
+  
+  func render(in content: ActivityIndicatorView) {
+    content.activityIndicator.startAnimating()
   }
   
   func referenceSize(in bounds: CGRect) -> CGSize? {
@@ -47,7 +46,7 @@ class ActivityIndicatorView: UIView, Component {
   }
 }
 
-private extension ActivityIndicatorView {
+extension ActivityIndicatorView {
   func setupViews() {
     backgroundColor = .white
     addSubviews(
@@ -67,5 +66,13 @@ private extension ActivityIndicatorView {
       make.top.equalTo(activityIndicator.snp.bottom).offset(6)
       make.centerX.equalToSuperview()
     }
+  }
+  
+  func startAnimating() {
+    activityIndicator.startAnimating()
+  }
+  
+  func stopAnimating() {
+    activityIndicator.stopAnimating()
   }
 }
