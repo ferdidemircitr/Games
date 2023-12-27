@@ -14,5 +14,6 @@ extension GamesViewController {
     case addTopView
     case removeTopView
     case addLoadingIndicator
+    case tapGestureHandler(Int)
   }
 }

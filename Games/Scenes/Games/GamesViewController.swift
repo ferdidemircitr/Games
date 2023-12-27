@@ -35,6 +35,10 @@ class GamesViewController: UIViewController {
     configureView()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    navigationController?.navigationBar.prefersLargeTitles = true
+  }
+  
   func bindState() {
     viewModel.stateChangeHandler = { [weak self] state in
       guard let self = self else { return }
@@ -47,12 +51,22 @@ class GamesViewController: UIViewController {
         self.hiddenTopView()
       case .addLoadingIndicator:
         self.viewModel.loadActivityIndicatorUI()
+      case .tapGestureHandler(let gameId):
+        print("2")
+        self.tapGestureHandler(gameId)
       }
     }
   }
   
   func render(_ sections: [Section]) {
     renderer.render(sections)
+  }
+  
+  func tapGestureHandler(_ gameId: Int) {
+    print("3")
+    let gameDetailsViewController = GameDetailsViewController()
+    gameDetailsViewController.gameID = gameId
+    navigationController?.pushViewController(gameDetailsViewController, animated: true)
   }
   
   func configureView() {
