@@ -11,9 +11,11 @@ import Carbon
 
 class DetailsView: UIView, Component {
   
+  var item: GameDetails?
+  
   private lazy var backgroundImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.contentMode = .scaleAspectFit
+    imageView.contentMode = .scaleAspectFill
     imageView.layer.masksToBounds = true
     return imageView
   }()
@@ -74,7 +76,12 @@ class DetailsView: UIView, Component {
   }
   
   func render(in content: DetailsView) {
+    guard let item = item else { return }
     
+    guard let url = URL(string: item.backgroundImage) else { return }
+    content.backgroundImageView.sd_setImage(with: url, completed: nil)
+    content.titleLabel.text = item.name
+    content.descriptionLabel.text = item.descriptionRaw
   }
   
   func referenceSize(in bounds: CGRect) -> CGSize? {
