@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 struct GameResponse: Codable {
   let count: Int
   let results: [Game]
@@ -17,9 +15,17 @@ struct GameResponse: Codable {
 struct Game: Codable {
   let id: Int
   let name: String
-  let background_image: String
+  let backgroundImage: String
   let metacritic: Int
   let genres: [Genre]?
+  
+  enum CodingKeys: String, CodingKey {
+    case id
+    case name
+    case backgroundImage = "background_image"
+    case metacritic
+    case genres
+  }
 }
 
 struct Genre: Codable {

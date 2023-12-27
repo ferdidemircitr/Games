@@ -9,4 +9,6 @@ import Foundation
 
 public final class GameDetailsViewModel {
   var stateChangeHandler: Callback<GameDetailsViewController.State>?
+  var gameId: Int?
+  var gameDetails: GameDetails?
 }

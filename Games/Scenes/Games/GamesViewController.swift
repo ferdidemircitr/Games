@@ -52,7 +52,6 @@ class GamesViewController: UIViewController {
       case .addLoadingIndicator:
         self.viewModel.loadActivityIndicatorUI()
       case .tapGestureHandler(let gameId):
-        print("2")
         self.tapGestureHandler(gameId)
       }
     }
@@ -63,9 +62,8 @@ class GamesViewController: UIViewController {
   }
   
   func tapGestureHandler(_ gameId: Int) {
-    print("3")
     let gameDetailsViewController = GameDetailsViewController()
-    gameDetailsViewController.gameID = gameId
+    gameDetailsViewController.gameId = gameId
     navigationController?.pushViewController(gameDetailsViewController, animated: true)
   }
   

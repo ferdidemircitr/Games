@@ -12,7 +12,7 @@ import Carbon
 class GameDetailsViewController: UIViewController {
   
   private var viewModel = GameDetailsViewModel()
-  var gameID: Int?
+  var gameId: Int?
   
   private lazy var tableView: UITableView = {
     let tableView = UITableView()
@@ -29,7 +29,7 @@ class GameDetailsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     bindState()
-    viewModel.loadUI()
+    viewModel.getGameDetails(gameId!)
     configureView()
   }
   

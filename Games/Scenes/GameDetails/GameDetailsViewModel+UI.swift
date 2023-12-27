@@ -23,6 +23,7 @@ extension GameDetailsViewModel {
   
   func makeGameDetailsNode() -> CellNode {
     let component = DetailsView()
+    component.item = self.gameDetails
     let node = CellNode(id: "GameDetailsNode", component)
     return node
   }
