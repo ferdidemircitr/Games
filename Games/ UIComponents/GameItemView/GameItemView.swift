@@ -13,6 +13,8 @@ import SDWebImage
 class GameItemView: UIView, Component {
   
   var item: Game?
+  var tapGestureHandler: ((Int) -> Void)?
+//  var stateChangeHandler: Callback<GameItemView.State>?
   
   private lazy var backgroundImageView: UIImageView = {
     let imageView = UIImageView()
@@ -94,7 +96,18 @@ private extension GameItemView {
       metacriticValueLabel,
       genresLabel
     )
+    
+    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer))
+    addGestureRecognizer(tapGestureRecognizer)
+    isUserInteractionEnabled = true
+    
     setupConstraints()
+  }
+  
+  @objc func handleTapGestureRecognizer() {
+    if let item = item {
+      tapGestureHandler?(item.id)
+    } 
   }
   
   func setupConstraints() {
