@@ -17,7 +17,6 @@ class GameDetailsViewController: UIViewController {
   private lazy var tableView: UITableView = {
     let tableView = UITableView()
     tableView.backgroundColor = .clear
-    tableView.separatorStyle = .none
     return tableView
   }()
   
@@ -50,6 +49,7 @@ class GameDetailsViewController: UIViewController {
   func configureView() {
     view.backgroundColor = .white
     view.addSubviews(tableView)
+    tableView.contentInset = UIEdgeInsets(top: -21, left: 0, bottom: 0, right: 0)
     renderer.target = tableView
     configureNavigation()
     configureConstraints()
@@ -66,7 +66,7 @@ class GameDetailsViewController: UIViewController {
   
   func configureConstraints() {
     tableView.snp.makeConstraints { make in
-      make.top.equalTo(view.safeAreaLayoutGuide).offset(25)
+      make.top.equalTo(view.safeAreaLayoutGuide)
       make.leading.trailing.bottom.equalToSuperview()
     }
   }
