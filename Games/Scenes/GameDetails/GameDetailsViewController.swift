@@ -11,6 +11,11 @@ import Carbon
 
 class GameDetailsViewController: UIViewController {
   
+  enum Const {
+    static let favorited = "Favorited"
+    static let notFavorited = "Favorite"
+  }
+  
   private var viewModel = GameDetailsViewModel()
   var gameId: Int?
   
@@ -38,6 +43,8 @@ class GameDetailsViewController: UIViewController {
       switch state {
       case .render(let sections):
         render(sections)
+      case .favoritedOrNot:
+        configureFavoriteButton()
       }
     }
   }
@@ -57,11 +64,16 @@ class GameDetailsViewController: UIViewController {
   
   func configureNavigation() {
     navigationController?.navigationBar.prefersLargeTitles = false
-    let favoriteButton = UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(favoriteButtonTapped))
+  }
+  
+  func configureFavoriteButton() {
+    let favoriteButtonTitle = viewModel.isFavorite ? Const.favorited : Const.notFavorited
+    let favoriteButton = UIBarButtonItem(title: favoriteButtonTitle, style: .plain, target: self, action: #selector(favoriteButtonTapped))
     navigationItem.rightBarButtonItem = favoriteButton
   }
   
   @objc private func favoriteButtonTapped() {
+    viewModel.isFavorite ? viewModel.removeFavoriteGame() : viewModel.addFavoriteGame()
   }
   
   func configureConstraints() {
