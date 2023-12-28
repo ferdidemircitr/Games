@@ -13,6 +13,8 @@ import SDWebImage
 class GameItemView: UIView, Component {
   
   var item: Game?
+  var tapGestureHandler: ((Int) -> Void)?
+//  var stateChangeHandler: Callback<GameItemView.State>?
   
   private lazy var backgroundImageView: UIImageView = {
     let imageView = UIImageView()
@@ -66,9 +68,7 @@ class GameItemView: UIView, Component {
   func render(in content: GameItemView) {
     guard let item = item else { return }
     
-    content.titleLabel.text = content.item?.name
-    
-    guard let url = URL(string: item.background_image) else { return }
+    guard let url = URL(string: item.backgroundImage) else { return }
     content.backgroundImageView.sd_setImage(with: url, completed: nil)
     content.titleLabel.text = item.name
     content.metacriticValueLabel.text = "\(item.metacritic)"
@@ -94,7 +94,18 @@ private extension GameItemView {
       metacriticValueLabel,
       genresLabel
     )
+    
+    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer))
+    addGestureRecognizer(tapGestureRecognizer)
+    isUserInteractionEnabled = true
+    
     setupConstraints()
+  }
+  
+  @objc func handleTapGestureRecognizer() {
+    if let item = item {
+      tapGestureHandler?(item.id)
+    } 
   }
   
   func setupConstraints() {

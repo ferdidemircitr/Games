@@ -12,7 +12,6 @@ import Carbon
 class GamesViewController: UIViewController {
   
   private var viewModel = GamesViewModel()
-  
   private let searchContainerView = UIView()
   private let searchBar = UISearchBar()
   
@@ -35,6 +34,10 @@ class GamesViewController: UIViewController {
     configureView()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    navigationController?.navigationBar.prefersLargeTitles = true
+  }
+  
   func bindState() {
     viewModel.stateChangeHandler = { [weak self] state in
       guard let self = self else { return }
@@ -47,6 +50,8 @@ class GamesViewController: UIViewController {
         self.hiddenTopView()
       case .addLoadingIndicator:
         self.viewModel.loadActivityIndicatorUI()
+      case .tapGestureHandler(let gameId):
+        self.tapGestureHandler(gameId)
       }
     }
   }
@@ -55,9 +60,16 @@ class GamesViewController: UIViewController {
     renderer.render(sections)
   }
   
+  func tapGestureHandler(_ gameId: Int) {
+    let gameDetailsViewController = GameDetailsViewController()
+    gameDetailsViewController.gameId = gameId
+    navigationController?.pushViewController(gameDetailsViewController, animated: true)
+  }
+  
   func configureView() {
     view.backgroundColor = UIColor(red: 0.953, green: 0.953, blue: 0.953, alpha: 1)
     view.addSubviews(tableView)
+    tableView.contentInset = UIEdgeInsets(top: -21, left: 0, bottom: 0, right: 0)
     renderer.target = tableView
     configureNavigation()
     configureConstraints()
@@ -99,7 +111,7 @@ class GamesViewController: UIViewController {
   
   func configureConstraints() {
     tableView.snp.makeConstraints { make in
-      make.top.equalTo(view.safeAreaLayoutGuide).offset(25)
+      make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
       make.leading.trailing.bottom.equalToSuperview()
     }
   }

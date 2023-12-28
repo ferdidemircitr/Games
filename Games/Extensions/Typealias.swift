@@ -7,4 +7,5 @@
 
 import Foundation
 
+typealias VoidCallback = () -> Void
 typealias Callback<T> = (T) -> Void
