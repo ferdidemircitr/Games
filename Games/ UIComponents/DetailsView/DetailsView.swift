@@ -84,8 +84,18 @@ class DetailsView: UIView, Component {
     content.descriptionLabel.text = item.descriptionRaw
   }
   
+//  func referenceSize(in bounds: CGRect) -> CGSize? {
+//    CGSize(width: bounds.width, height: 333)
+//  }
+  
   func referenceSize(in bounds: CGRect) -> CGSize? {
-    CGSize(width: bounds.width, height: bounds.height)
+      return intrinsicContentSize()
+  }
+
+  func intrinsicContentSize() -> CGSize {
+      layoutIfNeeded()
+      let height = descriptionLabel.frame.maxY + 16 // 16: padding
+      return CGSize(width: bounds.width, height: height)
   }
 }
 
