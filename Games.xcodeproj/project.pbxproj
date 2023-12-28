@@ -27,7 +27,7 @@
 		8155C55E2B3C02F400B1A2F6 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8155C55B2B3C02F400B1A2F6 /* Roboto-Bold.ttf */; };
 		815AB5A52B388BE0007726DE /* GameItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815AB5A42B388BE0007726DE /* GameItemTableViewCell.swift */; };
 		8177FBC42B3DAC1D00C97CDD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177FBC32B3DAC1D00C97CDD /* TabBarController.swift */; };
-		8177FBC72B3DAD0700C97CDD /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177FBC62B3DAD0700C97CDD /* FavoriteViewController.swift */; };
+		8177FBC72B3DAD0700C97CDD /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177FBC62B3DAD0700C97CDD /* FavoritesViewController.swift */; };
 		81E280402B33154900C22BA5 /* GameItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2803F2B33154900C22BA5 /* GameItemView.swift */; };
 		81E280452B33191A00C22BA5 /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E280442B33191A00C22BA5 /* GamesViewModel.swift */; };
 		81E280472B343AE800C22BA5 /* GamesViewModel+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E280462B343AE800C22BA5 /* GamesViewModel+UI.swift */; };
@@ -73,7 +73,7 @@
 		8155C55B2B3C02F400B1A2F6 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		815AB5A42B388BE0007726DE /* GameItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameItemTableViewCell.swift; path = "Games/ UIComponents/GameItemTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		8177FBC32B3DAC1D00C97CDD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		8177FBC62B3DAD0700C97CDD /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		8177FBC62B3DAD0700C97CDD /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		81E2803F2B33154900C22BA5 /* GameItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemView.swift; sourceTree = "<group>"; };
 		81E280442B33191A00C22BA5 /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
 		81E280462B343AE800C22BA5 /* GamesViewModel+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GamesViewModel+UI.swift"; sourceTree = "<group>"; };
@@ -262,12 +262,12 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		8177FBC52B3DACD200C97CDD /* Favorite */ = {
+		8177FBC52B3DACD200C97CDD /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				8177FBC62B3DAD0700C97CDD /* FavoriteViewController.swift */,
+				8177FBC62B3DAD0700C97CDD /* FavoritesViewController.swift */,
 			);
-			path = Favorite;
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		81E280412B3318B900C22BA5 /*  UIComponents */ = {
@@ -289,7 +289,7 @@
 				8177FBC22B3DAC0000C97CDD /* TabBar */,
 				81E280432B33190900C22BA5 /* Games */,
 				81F25C3A2B3B00ED004EDFD3 /* GameDetails */,
-				8177FBC52B3DACD200C97CDD /* Favorite */,
+				8177FBC52B3DACD200C97CDD /* Favorites */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -499,7 +499,7 @@
 				812244622B3589B4005DB969 /* GameResponse.swift in Sources */,
 				81E280452B33191A00C22BA5 /* GamesViewModel.swift in Sources */,
 				811DACB12B3C3FE3001F71C6 /* GameDetailsViewModel+Service.swift in Sources */,
-				8177FBC72B3DAD0700C97CDD /* FavoriteViewController.swift in Sources */,
+				8177FBC72B3DAD0700C97CDD /* FavoritesViewController.swift in Sources */,
 				81F25C422B3B028B004EDFD3 /* GameDetailsViewController+State.swift in Sources */,
 				81E280492B3449E400C22BA5 /* GamesViewController+State.swift in Sources */,
 				81E2804C2B345C8100C22BA5 /* Typealias.swift in Sources */,
