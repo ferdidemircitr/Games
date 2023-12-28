@@ -11,5 +11,6 @@ import Carbon
 extension GameDetailsViewController {
   enum State {
     case render(_ section: [Section])
+    case favoritedOrNot
   }
 }

@@ -15,6 +15,7 @@ extension GameDetailsViewModel {
       switch result {
       case .success(let response):
         self.gameDetails = response
+        self.checkFavoriteStatus()
         self.loadUI()
       case .failure(let error):
         print(error.localizedDescription)
