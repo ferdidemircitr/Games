@@ -15,16 +15,15 @@ class TabBarController: UITabBarController {
     setupViews()
   }
   private func setupViews(){
-    
-    view.backgroundColor = .systemBackground
-    
+    tabBar.backgroundColor = .white
+
     let gamesViewController = GamesViewController()
     gamesViewController.tabBarItem = UITabBarItem(title: "Games", image: UIImage(systemName: "gamecontroller.fill"), tag: 0)
     
-    let favoriteViewController = FavoriteViewController()
-    favoriteViewController.tabBarItem = UITabBarItem(title: "Favorite", image: UIImage(systemName: "star.fill"), tag: 1)
+    let favoritesViewController = FavoritesViewController()
+    favoritesViewController.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star.fill"), tag: 1)
     
-    let tabBarList = [gamesViewController, favoriteViewController]
+    let tabBarList = [gamesViewController, favoritesViewController]
     viewControllers = tabBarList.map({ UINavigationController(rootViewController: $0) })
   }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		811994AA2B3DBCA400CF80F3 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811994A92B3DBCA400CF80F3 /* FavoritesViewModel.swift */; };
+		811994AC2B3DBCAE00CF80F3 /* FavoritesViewModel+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811994AB2B3DBCAE00CF80F3 /* FavoritesViewModel+UI.swift */; };
+		811994B22B3DBCED00CF80F3 /* FavoritesViewController+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811994B12B3DBCED00CF80F3 /* FavoritesViewController+State.swift */; };
 		8119A9A82B31773F008B2412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119A9A72B31773F008B2412 /* AppDelegate.swift */; };
 		8119A9AA2B31773F008B2412 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119A9A92B31773F008B2412 /* SceneDelegate.swift */; };
 		8119A9AC2B31773F008B2412 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119A9AB2B31773F008B2412 /* GamesViewController.swift */; };
@@ -27,7 +30,7 @@
 		8155C55E2B3C02F400B1A2F6 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8155C55B2B3C02F400B1A2F6 /* Roboto-Bold.ttf */; };
 		815AB5A52B388BE0007726DE /* GameItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815AB5A42B388BE0007726DE /* GameItemTableViewCell.swift */; };
 		8177FBC42B3DAC1D00C97CDD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177FBC32B3DAC1D00C97CDD /* TabBarController.swift */; };
-		8177FBC72B3DAD0700C97CDD /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177FBC62B3DAD0700C97CDD /* FavoriteViewController.swift */; };
+		8177FBC72B3DAD0700C97CDD /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177FBC62B3DAD0700C97CDD /* FavoritesViewController.swift */; };
 		81E280402B33154900C22BA5 /* GameItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2803F2B33154900C22BA5 /* GameItemView.swift */; };
 		81E280452B33191A00C22BA5 /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E280442B33191A00C22BA5 /* GamesViewModel.swift */; };
 		81E280472B343AE800C22BA5 /* GamesViewModel+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E280462B343AE800C22BA5 /* GamesViewModel+UI.swift */; };
@@ -51,6 +54,9 @@
 		4298100476993B2D24349018 /* Pods-Games.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Games.release.xcconfig"; path = "Target Support Files/Pods-Games/Pods-Games.release.xcconfig"; sourceTree = "<group>"; };
 		6D992781969221AE528E04E4 /* Pods_Games.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Games.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C559CF34AF18855D92FAD0B /* Pods-Games.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Games.debug.xcconfig"; path = "Target Support Files/Pods-Games/Pods-Games.debug.xcconfig"; sourceTree = "<group>"; };
+		811994A92B3DBCA400CF80F3 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		811994AB2B3DBCAE00CF80F3 /* FavoritesViewModel+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesViewModel+UI.swift"; sourceTree = "<group>"; };
+		811994B12B3DBCED00CF80F3 /* FavoritesViewController+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesViewController+State.swift"; sourceTree = "<group>"; };
 		8119A9A42B31773F008B2412 /* Games.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Games.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8119A9A72B31773F008B2412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8119A9A92B31773F008B2412 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +79,7 @@
 		8155C55B2B3C02F400B1A2F6 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		815AB5A42B388BE0007726DE /* GameItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameItemTableViewCell.swift; path = "Games/ UIComponents/GameItemTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		8177FBC32B3DAC1D00C97CDD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		8177FBC62B3DAD0700C97CDD /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		8177FBC62B3DAD0700C97CDD /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		81E2803F2B33154900C22BA5 /* GameItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemView.swift; sourceTree = "<group>"; };
 		81E280442B33191A00C22BA5 /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
 		81E280462B343AE800C22BA5 /* GamesViewModel+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GamesViewModel+UI.swift"; sourceTree = "<group>"; };
@@ -262,12 +268,15 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		8177FBC52B3DACD200C97CDD /* Favorite */ = {
+		8177FBC52B3DACD200C97CDD /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				8177FBC62B3DAD0700C97CDD /* FavoriteViewController.swift */,
+				8177FBC62B3DAD0700C97CDD /* FavoritesViewController.swift */,
+				811994B12B3DBCED00CF80F3 /* FavoritesViewController+State.swift */,
+				811994A92B3DBCA400CF80F3 /* FavoritesViewModel.swift */,
+				811994AB2B3DBCAE00CF80F3 /* FavoritesViewModel+UI.swift */,
 			);
-			path = Favorite;
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		81E280412B3318B900C22BA5 /*  UIComponents */ = {
@@ -289,7 +298,7 @@
 				8177FBC22B3DAC0000C97CDD /* TabBar */,
 				81E280432B33190900C22BA5 /* Games */,
 				81F25C3A2B3B00ED004EDFD3 /* GameDetails */,
-				8177FBC52B3DACD200C97CDD /* Favorite */,
+				8177FBC52B3DACD200C97CDD /* Favorites */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -477,7 +486,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				811994AC2B3DBCAE00CF80F3 /* FavoritesViewModel+UI.swift in Sources */,
 				812244582B3577C8005DB969 /* GamesViewModel+Service.swift in Sources */,
+				811994B22B3DBCED00CF80F3 /* FavoritesViewController+State.swift in Sources */,
 				81E280472B343AE800C22BA5 /* GamesViewModel+UI.swift in Sources */,
 				81FCE6732B3C616900E526CA /* CustomButtonView.swift in Sources */,
 				81F25C392B3AC9BF004EDFD3 /* EmptyStateView.swift in Sources */,
@@ -489,6 +500,7 @@
 				81E280402B33154900C22BA5 /* GameItemView.swift in Sources */,
 				81F25C402B3B0201004EDFD3 /* GameDetailsViewModel+UI.swift in Sources */,
 				815AB5A52B388BE0007726DE /* GameItemTableViewCell.swift in Sources */,
+				811994AA2B3DBCA400CF80F3 /* FavoritesViewModel.swift in Sources */,
 				8119A9A82B31773F008B2412 /* AppDelegate.swift in Sources */,
 				811DACB32B3C4369001F71C6 /* GameDetails.swift in Sources */,
 				81E2804E2B346D1100C22BA5 /* UIView+Extensions.swift in Sources */,
@@ -499,7 +511,7 @@
 				812244622B3589B4005DB969 /* GameResponse.swift in Sources */,
 				81E280452B33191A00C22BA5 /* GamesViewModel.swift in Sources */,
 				811DACB12B3C3FE3001F71C6 /* GameDetailsViewModel+Service.swift in Sources */,
-				8177FBC72B3DAD0700C97CDD /* FavoriteViewController.swift in Sources */,
+				8177FBC72B3DAD0700C97CDD /* FavoritesViewController.swift in Sources */,
 				81F25C422B3B028B004EDFD3 /* GameDetailsViewController+State.swift in Sources */,
 				81E280492B3449E400C22BA5 /* GamesViewController+State.swift in Sources */,
 				81E2804C2B345C8100C22BA5 /* Typealias.swift in Sources */,
