@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		811994AA2B3DBCA400CF80F3 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811994A92B3DBCA400CF80F3 /* FavoritesViewModel.swift */; };
+		811994AC2B3DBCAE00CF80F3 /* FavoritesViewModel+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811994AB2B3DBCAE00CF80F3 /* FavoritesViewModel+UI.swift */; };
+		811994B22B3DBCED00CF80F3 /* FavoritesViewController+State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811994B12B3DBCED00CF80F3 /* FavoritesViewController+State.swift */; };
 		8119A9A82B31773F008B2412 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119A9A72B31773F008B2412 /* AppDelegate.swift */; };
 		8119A9AA2B31773F008B2412 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119A9A92B31773F008B2412 /* SceneDelegate.swift */; };
 		8119A9AC2B31773F008B2412 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119A9AB2B31773F008B2412 /* GamesViewController.swift */; };
@@ -51,6 +54,9 @@
 		4298100476993B2D24349018 /* Pods-Games.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Games.release.xcconfig"; path = "Target Support Files/Pods-Games/Pods-Games.release.xcconfig"; sourceTree = "<group>"; };
 		6D992781969221AE528E04E4 /* Pods_Games.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Games.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C559CF34AF18855D92FAD0B /* Pods-Games.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Games.debug.xcconfig"; path = "Target Support Files/Pods-Games/Pods-Games.debug.xcconfig"; sourceTree = "<group>"; };
+		811994A92B3DBCA400CF80F3 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		811994AB2B3DBCAE00CF80F3 /* FavoritesViewModel+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesViewModel+UI.swift"; sourceTree = "<group>"; };
+		811994B12B3DBCED00CF80F3 /* FavoritesViewController+State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesViewController+State.swift"; sourceTree = "<group>"; };
 		8119A9A42B31773F008B2412 /* Games.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Games.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8119A9A72B31773F008B2412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8119A9A92B31773F008B2412 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -266,6 +272,9 @@
 			isa = PBXGroup;
 			children = (
 				8177FBC62B3DAD0700C97CDD /* FavoritesViewController.swift */,
+				811994B12B3DBCED00CF80F3 /* FavoritesViewController+State.swift */,
+				811994A92B3DBCA400CF80F3 /* FavoritesViewModel.swift */,
+				811994AB2B3DBCAE00CF80F3 /* FavoritesViewModel+UI.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -477,7 +486,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				811994AC2B3DBCAE00CF80F3 /* FavoritesViewModel+UI.swift in Sources */,
 				812244582B3577C8005DB969 /* GamesViewModel+Service.swift in Sources */,
+				811994B22B3DBCED00CF80F3 /* FavoritesViewController+State.swift in Sources */,
 				81E280472B343AE800C22BA5 /* GamesViewModel+UI.swift in Sources */,
 				81FCE6732B3C616900E526CA /* CustomButtonView.swift in Sources */,
 				81F25C392B3AC9BF004EDFD3 /* EmptyStateView.swift in Sources */,
@@ -489,6 +500,7 @@
 				81E280402B33154900C22BA5 /* GameItemView.swift in Sources */,
 				81F25C402B3B0201004EDFD3 /* GameDetailsViewModel+UI.swift in Sources */,
 				815AB5A52B388BE0007726DE /* GameItemTableViewCell.swift in Sources */,
+				811994AA2B3DBCA400CF80F3 /* FavoritesViewModel.swift in Sources */,
 				8119A9A82B31773F008B2412 /* AppDelegate.swift in Sources */,
 				811DACB32B3C4369001F71C6 /* GameDetails.swift in Sources */,
 				81E2804E2B346D1100C22BA5 /* UIView+Extensions.swift in Sources */,

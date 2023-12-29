@@ -15,9 +15,8 @@ class TabBarController: UITabBarController {
     setupViews()
   }
   private func setupViews(){
-    
-    view.backgroundColor = .systemBackground
-    
+    tabBar.backgroundColor = .white
+
     let gamesViewController = GamesViewController()
     gamesViewController.tabBarItem = UITabBarItem(title: "Games", image: UIImage(systemName: "gamecontroller.fill"), tag: 0)
     

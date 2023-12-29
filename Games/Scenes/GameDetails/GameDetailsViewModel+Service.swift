@@ -10,7 +10,6 @@ import Carbon
 
 extension GameDetailsViewModel {
   func getGameDetails(_ gameId: Int) {
-    print(gameId)
     NetworkManager.shared.routerRequest(request: Router.getGameDetails(gameId)) { (result: Result<GameDetails, Error>) in
       switch result {
       case .success(let response):

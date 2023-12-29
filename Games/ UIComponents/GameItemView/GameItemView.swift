@@ -14,7 +14,6 @@ class GameItemView: UIView, Component {
   
   var item: Game?
   var tapGestureHandler: ((Int) -> Void)?
-//  var stateChangeHandler: Callback<GameItemView.State>?
   
   private lazy var backgroundImageView: UIImageView = {
     let imageView = UIImageView()

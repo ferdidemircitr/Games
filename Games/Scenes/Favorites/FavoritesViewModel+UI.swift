@@ -1,18 +1,18 @@
 //
-//  GamesViewModel.swift
+//  FavoritesViewModel.swift
 //  Games
 //
-//  Created by Ferdi DEMİRCİ on 20.12.2023.
+//  Created by Ferdi DEMİRCİ on 28.12.2023.
 //
 
 import Foundation
 import Carbon
 
-public extension GamesViewModel {
+public extension FavoritesViewModel {
   func loadUI() {
     stateChangeHandler?(.addTopView)
     var sections: [Section] = []
-    sections.append(makeGameListSection())
+    sections.append(makeFavoriListSection())
     stateChangeHandler?(.render(sections))
   }
   
@@ -22,14 +22,14 @@ public extension GamesViewModel {
     stateChangeHandler?(.render(sections))
   }
   
-  private func makeGameListSection() -> Section {
+  private func makeFavoriListSection() -> Section {
     var nodes: [CellNode] = []
     if isSearching {
       nodes.append(contentsOf: makeNodesForSearchResults())
     } else {
       nodes.append(contentsOf: makeNodesForAllGames())
     }
-    return Section(id: "GameListSection", cells: nodes)
+    return Section(id: "FavoriListSection", cells: nodes)
   }
   
   private func makeActivityIndicatorSection() -> Section {
@@ -39,37 +39,37 @@ public extension GamesViewModel {
   }
   
   private func makeNodesForSearchResults() -> [CellNode] {
-      guard let filteredGames = filteredGames else {
-          return [makeEmptyStateViewNode(message: Const.noServiceResult)]
-      }
-
-      if filteredGames.isEmpty {
-          return [makeEmptyStateViewNode(message: Const.noSearchResult)]
-      }
-
-      return filteredGames.flatMap { game in
-          [
-            makeGameItemNode(item: game),
-            SpacingComponent(20).toCellNode()
-          ]
-      }
-  }
-
-  private func makeNodesForAllGames() -> [CellNode] {
-      guard let allGames = allGames else {
-          return [makeEmptyStateViewNode(message: Const.noServiceResult)]
-      }
-    
-    if allGames.isEmpty {
+    guard let filteredGames = filteredGames else {
       return [makeEmptyStateViewNode(message: Const.noServiceResult)]
     }
-
-      return allGames.flatMap { game in
-          [
-            makeGameItemNode(item: game),
-            SpacingComponent(20).toCellNode()
-          ]
-      }
+    
+    if filteredGames.isEmpty {
+      return [makeEmptyStateViewNode(message: Const.noSearchResult)]
+    }
+    
+    return filteredGames.flatMap { game in
+      [
+        makeGameItemNode(item: game),
+        SpacingComponent(20).toCellNode()
+      ]
+    }
+  }
+  
+  private func makeNodesForAllGames() -> [CellNode] {
+    guard let favoriteGames = favoriteGames else {
+      return [makeEmptyStateViewNode(message: Const.noServiceResult)]
+    }
+    
+    if favoriteGames.isEmpty {
+      return [makeEmptyStateViewNode(message: Const.noServiceResult)]
+    }
+    
+    return favoriteGames.flatMap { game in
+      [
+        makeGameItemNode(item: game),
+        SpacingComponent(20).toCellNode()
+      ]
+    }
   }
   
   private func makeGameItemNode(item: Game) -> CellNode {
