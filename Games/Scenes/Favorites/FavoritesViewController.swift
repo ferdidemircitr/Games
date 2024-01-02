@@ -29,14 +29,13 @@ class FavoritesViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    bindState()
-    viewModel.fetchFavoriteGames()
-    configureView()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     navigationController?.navigationBar.prefersLargeTitles = true
+    bindState()
     viewModel.fetchFavoriteGames()
+    configureView()
   }
   
   func bindState() {
