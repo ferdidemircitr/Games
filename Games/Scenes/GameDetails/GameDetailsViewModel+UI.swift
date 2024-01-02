@@ -27,7 +27,7 @@ extension GameDetailsViewModel {
   func makeGameDetailsNode(_ item: GameDetails) -> CellNode {
     let component = DetailsView()
     component.item = item
-    let node = CellNode(id: "GameDetailsNode", component)
+    let node = CellNode(id: item.id, component)
     return node
   }
   

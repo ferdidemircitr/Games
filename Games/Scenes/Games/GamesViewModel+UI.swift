@@ -73,19 +73,11 @@ public extension GamesViewModel {
   }
   
   private func makeGameItemNode(item: Game) -> CellNode {
-    let component = GameItemView()
-    component.item = item
+    var component = GameComponent(item: item)
     component.tapGestureHandler = { state in
       self.stateChangeHandler?(.tapGestureHandler(state))
     }
-    let node = CellNode(id: item.id, component)
-    return node
-  }
-  
-  private func makeNotSearchNode(item: Game) -> CellNode {
-    let component = GameItemView()
-    component.item = item
-    let node = CellNode(id: item.id, component)
+    let node = CellNode(id: "GameItemCellNode", component)
     return node
   }
   
