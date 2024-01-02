@@ -21,7 +21,7 @@ public final class FavoritesViewModel {
   var filteredGames: [Game]?
   var isSearching = false
   var isSearchQueryLengthLessThanMinimum = false
-  let coreDataManager = CoreDataManager()
+  let coreDataManager = CoreDataManager.shared
   
   func searchGames(query: String) {
     if let allGames = favoriteGames,

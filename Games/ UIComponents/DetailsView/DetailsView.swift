@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Carbon
+import SDWebImage
 
 class DetailsView: UIView, Component {
   
@@ -84,17 +85,13 @@ class DetailsView: UIView, Component {
     content.descriptionLabel.text = item.descriptionRaw
   }
   
-//  func referenceSize(in bounds: CGRect) -> CGSize? {
-//    CGSize(width: bounds.width, height: 333)
-//  }
-  
   func referenceSize(in bounds: CGRect) -> CGSize? {
       return intrinsicContentSize()
   }
 
   func intrinsicContentSize() -> CGSize {
       layoutIfNeeded()
-      let height = descriptionLabel.frame.maxY + 16 // 16: padding
+      let height = descriptionLabel.frame.maxY + 16
       return CGSize(width: bounds.width, height: height)
   }
 }

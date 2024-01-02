@@ -33,7 +33,7 @@ class GameDetailsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     bindState()
-    viewModel.getGameDetails(gameId!)
+    viewModel.getGameDetails(gameId ?? 0)
     configureView()
   }
   

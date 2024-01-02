@@ -9,6 +9,8 @@ import Foundation
 import CoreData
 
 class CoreDataManager {
+  static let shared = CoreDataManager()
+  
   lazy var persistentContainer: NSPersistentContainer = {
     let container = NSPersistentContainer(name: "FavoriteGames")
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
