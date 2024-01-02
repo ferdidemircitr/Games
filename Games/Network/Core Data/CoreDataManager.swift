@@ -33,6 +33,19 @@ class CoreDataManager {
     }
   }
   
+  func fetchData() -> [NSManagedObject]? {
+    let context = persistentContainer.viewContext
+    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteGames")
+    
+    do {
+      let data = try context.fetch(fetchRequest)
+      return data
+    } catch {
+      print("Error fetching data: \(error)")
+      return nil
+    }
+  }
+  
   func fetchFavoriteGame(by id: Int) -> NSManagedObject? {
     let context = persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteGames")
