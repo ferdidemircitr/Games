@@ -15,14 +15,12 @@ public final class GamesViewModel {
     static let noSearchResult = "No game has been searched."
     static let noServiceResult = "No service results."
   }
-  
   var stateChangeHandler: Callback<GamesViewController.State>?
   var allGames: [Game]?
   var filteredGames: [Game]?
   var isSearching = false
   var isSearchQueryLengthLessThanMinimum = false
   var coreDataManager = CoreDataManager.shared
-  
   func searchGames(query: String) {
     if let allGames = allGames,
        !query.isEmpty,
