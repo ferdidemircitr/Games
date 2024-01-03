@@ -11,8 +11,7 @@ import UIKit
 import SnapKit
 
 class CustomButtonView: UIView, Component {
-  var url: String?
-  
+  var urlString: String?
   private lazy var urlButton: UIButton = {
     let button = UIButton()
     button.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 17)
@@ -21,36 +20,29 @@ class CustomButtonView: UIView, Component {
     button.addTarget(self, action: #selector(didTapOpenSafari), for: .touchUpInside)
     return button
   }()
-  
   @objc func didTapOpenSafari() {
-      if let url = url,
-         let url = URL(string: url) {
-          UIApplication.shared.open(url, options: [:], completionHandler: nil)
+      if let urlString = urlString,
+         let urlString = URL(string: urlString) {
+          UIApplication.shared.open(urlString, options: [:], completionHandler: nil)
       }
   }
-  
-  public init(title: String, url: String) {
+  public init(title: String, urlString: String) {
     super.init(frame: .zero)
-    configure(title, url)
+    configure(title, urlString)
     setupViews()
   }
-  
-  func configure(_ title: String, _ url: String) {
+  func configure(_ title: String, _ urlString: String) {
     urlButton.setTitle(title, for: .normal)
-    self.url = url
+    self.urlString = urlString
   }
-  
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
   func renderContent() -> CustomButtonView {
     return self
   }
-  
   func render(in content: CustomButtonView) {
   }
-  
   func referenceSize(in bounds: CGRect) -> CGSize? {
     CGSize(width: bounds.width, height: 54)
   }
@@ -61,7 +53,6 @@ private extension CustomButtonView {
     addSubview(urlButton)
     setupConstraints()
   }
-  
   func setupConstraints() {
     urlButton.snp.makeConstraints { make in
       make.top.leading.equalToSuperview().offset(16)
@@ -69,4 +60,3 @@ private extension CustomButtonView {
     }
   }
 }
-

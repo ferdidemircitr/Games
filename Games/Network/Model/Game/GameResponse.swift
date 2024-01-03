@@ -18,7 +18,6 @@ struct Game: Codable {
   let backgroundImage: String
   let metacritic: Int
   let genres: [Genre]?
-  
   enum CodingKeys: String, CodingKey {
     case id
     case name

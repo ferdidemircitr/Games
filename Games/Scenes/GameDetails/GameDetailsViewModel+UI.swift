@@ -23,22 +23,19 @@ extension GameDetailsViewModel {
     nodes.append(makeVisitWebsiteButtonNode(item))
     return Section(id: "GameDetailsSection", cells: nodes)
   }
-  
   func makeGameDetailsNode(_ item: GameDetails) -> CellNode {
     let component = DetailsView()
     component.item = item
     let node = CellNode(id: item.id, component)
     return node
   }
-  
   func makeVisitRedditButtonNode(_ item: GameDetails) -> CellNode {
-    let component = CustomButtonView(title: "Visit reddit", url: item.redditURL)
+    let component = CustomButtonView(title: "Visit reddit", urlString: item.redditURL)
     let node = CellNode(id: "VisitRedditButtonNode", component)
     return node
   }
-  
   func makeVisitWebsiteButtonNode(_ item: GameDetails) -> CellNode {
-    let component = CustomButtonView(title: "Visit website", url: item.website)
+    let component = CustomButtonView(title: "Visit website", urlString: item.website)
     let node = CellNode(id: "VisitWebsiteButtonNode", component)
     return node
   }

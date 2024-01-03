@@ -10,7 +10,6 @@ import Alamofire
 
 class NetworkManager {
   static let shared = NetworkManager()
-  
   func routerRequest<T: Decodable>(request: URLRequestConvertible, callback: @escaping (Result<T, Error>) -> Void) {
     AF.request(request)
       .validate()
