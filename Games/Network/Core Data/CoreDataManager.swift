@@ -10,22 +10,19 @@ import CoreData
 
 class CoreDataManager {
   static let shared = CoreDataManager()
-  
   lazy var persistentContainer: NSPersistentContainer = {
     let container = NSPersistentContainer(name: "FavoriteGames")
-    container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+    container.loadPersistentStores(completionHandler: { (_, error) in
       if let error = error as NSError? {
         fatalError("Unresolved error \(error), \(error.userInfo)")
       }
     })
     return container
   }()
-  
   func isFavorite(id: Int) -> Bool {
     let context = persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoriteGames")
     fetchRequest.predicate = NSPredicate(format: "id == %@", NSNumber(value: id))
-    
     do {
       let result = try context.fetch(fetchRequest)
       return !result.isEmpty
@@ -34,11 +31,9 @@ class CoreDataManager {
       return false
     }
   }
-  
   func fetchData() -> [NSManagedObject]? {
     let context = persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteGames")
-    
     do {
       let data = try context.fetch(fetchRequest)
       return data
@@ -47,12 +42,10 @@ class CoreDataManager {
       return nil
     }
   }
-  
   func fetchFavoriteGame(by id: Int) -> NSManagedObject? {
     let context = persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteGames")
     fetchRequest.predicate = NSPredicate(format: "id == %@", NSNumber(value: id))
-    
     do {
       let result = try context.fetch(fetchRequest)
       return result.first
@@ -61,7 +54,6 @@ class CoreDataManager {
       return nil
     }
   }
-  
   func addData(add model: FavoriteGame) {
     let context = persistentContainer.viewContext
     let entity = NSEntityDescription.entity(forEntityName: "FavoriteGames", in: context)!
@@ -80,23 +72,19 @@ class CoreDataManager {
       print("Error saving data: \(error)")
     }
   }
-  
   func deleteData(delete object: NSManagedObject) {
     let context = persistentContainer.viewContext
     context.delete(object)
-    
     do {
       try context.save()
     } catch {
       print("Error deleting data: \(error)")
     }
   }
-  
   func isVisitedGame(id: Int) -> Bool {
     let context = persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "VisitedGames")
     fetchRequest.predicate = NSPredicate(format: "id == %@", NSNumber(value: id))
-    
     do {
       let result = try context.fetch(fetchRequest)
       return !result.isEmpty
@@ -105,13 +93,11 @@ class CoreDataManager {
       return false
     }
   }
-  
   func addVisitedGame(add id: Int) {
     let context = persistentContainer.viewContext
     let entity = NSEntityDescription.entity(forEntityName: "VisitedGames", in: context)!
     let visitedGame = NSManagedObject(entity: entity, insertInto: context)
     visitedGame.setValue(id, forKey: "id")
-    
     do {
       try context.save()
     } catch {

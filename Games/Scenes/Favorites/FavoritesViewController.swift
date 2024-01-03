@@ -10,34 +10,25 @@ import SnapKit
 import Carbon
 
 class FavoritesViewController: UIViewController {
-  
   private var viewModel = FavoritesViewModel()
   private let searchContainerView = UIView()
   private let searchBar = UISearchBar()
-  
   private lazy var tableView: UITableView = {
     let tableView = UITableView()
     tableView.backgroundColor = .clear
     tableView.separatorStyle = .none
     return tableView
   }()
-  
   private lazy var renderer = Renderer(
     adapter: UITableViewAdapter(),
     updater: UITableViewUpdater()
   )
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-  
   override func viewWillAppear(_ animated: Bool) {
     navigationController?.navigationBar.prefersLargeTitles = true
     bindState()
     viewModel.fetchFavoriteGames()
     configureView()
   }
-  
   func bindState() {
     viewModel.stateChangeHandler = { [weak self] state in
       guard let self = self else { return }
@@ -55,17 +46,14 @@ class FavoritesViewController: UIViewController {
       }
     }
   }
-  
   func render(_ sections: [Section]) {
     renderer.render(sections)
   }
-  
   func tapGestureHandler(_ gameId: Int) {
     let gameDetailsViewController = GameDetailsViewController()
     gameDetailsViewController.gameId = gameId
     navigationController?.pushViewController(gameDetailsViewController, animated: true)
   }
-  
   func configureView() {
     view.backgroundColor = UIColor(red: 0.953, green: 0.953, blue: 0.953, alpha: 1)
     view.addSubviews(tableView)
@@ -74,7 +62,6 @@ class FavoritesViewController: UIViewController {
     configureNavigation()
     configureConstraints()
   }
-  
   func configureNavigation() {
     navigationItem.title = "Favorites"
     navigationController?.navigationBar.prefersLargeTitles = true
@@ -84,30 +71,25 @@ class FavoritesViewController: UIViewController {
     navigationController?.navigationBar.isTranslucent = true
     navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
   }
-  
   private func configureTopView() {
     searchBar.delegate = self
     searchBar.placeholder = "Search for the games"
     view.addSubview(searchContainerView)
     searchContainerView.addSubview(searchBar)
-    
     searchContainerView.snp.makeConstraints { make in
       make.top.equalTo(view.safeAreaLayoutGuide)
       make.leading.trailing.equalToSuperview()
       make.height.equalTo(50)
     }
-    
     searchBar.snp.makeConstraints { make in
       make.edges.equalToSuperview()
     }
   }
-  
   private func hiddenTopView() {
     searchContainerView.snp.updateConstraints { make in
       make.height.equalTo(0)
     }
   }
-  
   func configureConstraints() {
     tableView.snp.makeConstraints { make in
       make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
@@ -121,4 +103,3 @@ extension FavoritesViewController: UISearchBarDelegate {
     viewModel.searchGames(query: searchText)
   }
 }
-

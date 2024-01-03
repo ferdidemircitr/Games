@@ -9,21 +9,17 @@ import Foundation
 import Alamofire
 
 public enum Router: URLRequestConvertible {
-  
   case getGames
   case getGameDetails(_ gameId: Int)
-  
   var baseURL: URL {
     return URL(string: "https://api.rawg.io/api")!
   }
-  
   private var method: HTTPMethod {
     switch self {
     case .getGames, .getGameDetails:
       return .get
     }
   }
-  
   var path: String {
     switch self {
     case .getGames:
@@ -32,27 +28,23 @@ public enum Router: URLRequestConvertible {
       return "/games/\(gameId)"
     }
   }
-  
   private var parameters: Parameters {
     switch self {
     case .getGames, .getGameDetails:
       return ["key": "3be8af6ebf124ffe81d90f514e59856c"]
     }
   }
-
   private var headers: HTTPHeaders {
     switch self {
     case .getGames, .getGameDetails:
       return [:]
     }
   }
-  
   public func asURLRequest() throws -> URLRequest {
-    let url = try baseURL.asURL()
-    var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+    let urlString = try baseURL.asURL()
+    var urlRequest = URLRequest(url: urlString.appendingPathComponent(path))
     urlRequest.httpMethod = method.rawValue
     urlRequest.headers = headers
-    
     let encoding: ParameterEncoding = {
       switch method {
       case .get:

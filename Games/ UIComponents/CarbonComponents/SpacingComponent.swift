@@ -9,7 +9,6 @@ import UIKit
 import Carbon
 
 public struct SpacingComponent: IdentifiableComponent {
-  
   private let height: CGFloat
   private let color: UIColor
   private let forceHeight: Bool

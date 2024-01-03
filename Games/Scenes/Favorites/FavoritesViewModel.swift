@@ -15,14 +15,12 @@ public final class FavoritesViewModel {
     static let noSearchResult = "No game has been searched."
     static let noServiceResult = "There is no favourites found."
   }
-  
   var stateChangeHandler: Callback<FavoritesViewController.State>?
   var favoriteGames: [Game]?
   var filteredGames: [Game]?
   var isSearching = false
   var isSearchQueryLengthLessThanMinimum = false
   let coreDataManager = CoreDataManager.shared
-  
   func searchGames(query: String) {
     if let allGames = favoriteGames,
        !query.isEmpty,
@@ -41,14 +39,12 @@ public final class FavoritesViewModel {
       }
     }
   }
-
   func fetchFavoriteGames() {
       if let favoriteGameObjects = coreDataManager.fetchData() {
           favoriteGames = favoriteGameObjects.compactMap { createFavoriteGameModel(from: $0) }
       }
     loadUI()
   }
-
   private func createFavoriteGameModel(from object: NSManagedObject) -> Game? {
       guard
           let id = object.value(forKey: "id") as? Int,
@@ -61,8 +57,6 @@ public final class FavoritesViewModel {
       }
     return Game(id: id, name: name, backgroundImage: backgroundImage, metacritic: metacritic, genres: parseGenresString(genres))
   }
-  
-  
   func parseGenresString(_ genresString: String) -> [Genre] {
       let genreNames = genresString.components(separatedBy: ", ")
       let genres = genreNames.map { Genre(name: $0) }
