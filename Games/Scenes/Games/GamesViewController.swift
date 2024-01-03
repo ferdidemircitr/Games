@@ -14,6 +14,7 @@ class GamesViewController: UIViewController {
   private var viewModel = GamesViewModel()
   private let searchContainerView = UIView()
   private let searchBar = UISearchBar()
+  var isReturningFromDetailVC = false
   
   private lazy var tableView: UITableView = {
     let tableView = UITableView()
@@ -33,9 +34,12 @@ class GamesViewController: UIViewController {
     viewModel.getGames()
     configureView()
   }
-  
   override func viewWillAppear(_ animated: Bool) {
     navigationController?.navigationBar.prefersLargeTitles = true
+    if isReturningFromDetailVC {
+      isReturningFromDetailVC = false
+      performTaskOnReturn()
+    }
   }
   
   func bindState() {
@@ -60,9 +64,15 @@ class GamesViewController: UIViewController {
     renderer.render(sections)
   }
   
+  func performTaskOnReturn() {
+    viewModel.loadUI()
+  }
+  
   func tapGestureHandler(_ gameId: Int) {
     let gameDetailsViewController = GameDetailsViewController()
     gameDetailsViewController.gameId = gameId
+    viewModel.addVisited(id: gameId)
+    isReturningFromDetailVC = true
     navigationController?.pushViewController(gameDetailsViewController, animated: true)
   }
   
