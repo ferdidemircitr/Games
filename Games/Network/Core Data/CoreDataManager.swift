@@ -91,4 +91,31 @@ class CoreDataManager {
       print("Error deleting data: \(error)")
     }
   }
+  
+  func isVisitedGame(id: Int) -> Bool {
+    let context = persistentContainer.viewContext
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "VisitedGames")
+    fetchRequest.predicate = NSPredicate(format: "id == %@", NSNumber(value: id))
+    
+    do {
+      let result = try context.fetch(fetchRequest)
+      return !result.isEmpty
+    } catch {
+      print("Error checking favorite status: \(error)")
+      return false
+    }
+  }
+  
+  func addVisitedGame(add id: Int) {
+    let context = persistentContainer.viewContext
+    let entity = NSEntityDescription.entity(forEntityName: "VisitedGames", in: context)!
+    let visitedGame = NSManagedObject(entity: entity, insertInto: context)
+    visitedGame.setValue(id, forKey: "id")
+    
+    do {
+      try context.save()
+    } catch {
+      print("Error saving data: \(error)")
+    }
+  }
 }

@@ -59,7 +59,6 @@ class GameItemCell: UITableViewCell {
   }
   
   func setupViews() {
-    backgroundColor = .white
     addSubviews(
       backgroundImageView,
       titleLabel,
@@ -112,17 +111,18 @@ struct GameComponent: IdentifiableComponent {
   
   var item: Game
   var tapGestureHandler: ((Int) -> Void)?
+  let coreDataManager = CoreDataManager.shared
   
   func renderContent() -> GameItemCell {
     return GameItemCell(style: .default, reuseIdentifier: "NoGameCell")
   }
   
   func render(in content: GameItemCell) {
+    content.backgroundColor = isVisitColor()
     guard let url = URL(string: item.backgroundImage) else { return }
     content.backgroundImageView.sd_setImage(with: url, completed: nil)
     content.titleLabel.text = item.name
     content.metacriticValueLabel.text = "\(item.metacritic)"
-    
     guard let genres = item.genres else { return }
     let genreNames = genres.map { $0.name }
     let combinedGenreNames = genreNames.joined(separator: ", ")
@@ -135,5 +135,10 @@ struct GameComponent: IdentifiableComponent {
   }
   func shouldContentUpdate(with next: GameComponent) -> Bool {
     return false
+  }
+  
+  func isVisitColor() -> UIColor {
+    let isFavorite = coreDataManager.isVisitedGame(id: item.id)
+    return isFavorite ? .clear : .white
   }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Carbon
+import CoreData
 
 public final class GamesViewModel {
   enum Const {
@@ -20,6 +21,7 @@ public final class GamesViewModel {
   var filteredGames: [Game]?
   var isSearching = false
   var isSearchQueryLengthLessThanMinimum = false
+  var coreDataManager = CoreDataManager.shared
   
   func searchGames(query: String) {
     if let allGames = allGames,
@@ -39,6 +41,9 @@ public final class GamesViewModel {
       }
     }
   }
-  
-  
+
+  func addVisited(id: Int) {
+    coreDataManager.addVisitedGame(add: id)
+//    stateChangeHandler?(.favoritedOrNot)
+  }
 }
