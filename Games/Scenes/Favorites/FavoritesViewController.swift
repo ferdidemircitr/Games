@@ -10,7 +10,7 @@ import SnapKit
 import Carbon
 
 class FavoritesViewController: UIViewController {
-  private var viewModel = FavoritesViewModel()
+  private var viewModel = FavoritesViewModel.shared
   private let searchContainerView = UIView()
   private let searchBar = UISearchBar()
   private lazy var tableView: UITableView = {
@@ -20,7 +20,7 @@ class FavoritesViewController: UIViewController {
     return tableView
   }()
   private lazy var renderer = Renderer(
-    adapter: UITableViewAdapter(),
+    adapter: CustomTableViewAdapter(),
     updater: UITableViewUpdater()
   )
   override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +43,9 @@ class FavoritesViewController: UIViewController {
         self.viewModel.loadActivityIndicatorUI()
       case .tapGestureHandler(let gameId):
         self.tapGestureHandler(gameId)
+      case .removeFavoriteGame:
+        self.viewModel.fetchFavoriteGames()
+//        tableView.reloadData()
       }
     }
   }
