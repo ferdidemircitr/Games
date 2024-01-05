@@ -114,5 +114,6 @@ class GamesViewController: UIViewController {
 extension GamesViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     viewModel.searchGames(query: searchText)
+    tableView.reloadData()
   }
 }
