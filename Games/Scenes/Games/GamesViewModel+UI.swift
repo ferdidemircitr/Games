@@ -43,8 +43,7 @@ public extension GamesViewModel {
     }
     return filteredGames.flatMap { game in
       [
-        makeGameItemNode(item: game),
-        SpacingComponent(20).toCellNode()
+        makeGameItemNode(item: game)
       ]
     }
   }
@@ -57,8 +56,7 @@ public extension GamesViewModel {
     }
     return allGames.flatMap { game in
       [
-        makeGameItemNode(item: game),
-        SpacingComponent(20).toCellNode()
+        makeGameItemNode(item: game)
       ]
     }
   }
