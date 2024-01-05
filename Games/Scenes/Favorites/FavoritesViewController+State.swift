@@ -15,5 +15,6 @@ extension FavoritesViewController {
     case removeTopView
     case addLoadingIndicator
     case tapGestureHandler(Int)
+    case removeFavoriteGame
   }
 }

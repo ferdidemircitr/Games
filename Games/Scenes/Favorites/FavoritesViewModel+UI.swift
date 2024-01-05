@@ -43,8 +43,7 @@ public extension FavoritesViewModel {
     }
     return filteredGames.flatMap { game in
       [
-        makeGameItemNode(item: game),
-        SpacingComponent(20).toCellNode()
+        makeGameItemNode(item: game)
       ]
     }
   }
@@ -57,8 +56,7 @@ public extension FavoritesViewModel {
     }
     return favoriteGames.flatMap { game in
       [
-        makeGameItemNode(item: game),
-        SpacingComponent(20).toCellNode()
+        makeGameItemNode(item: game)
       ]
     }
   }
