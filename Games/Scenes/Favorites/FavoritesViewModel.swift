@@ -15,6 +15,7 @@ public final class FavoritesViewModel {
     static let noSearchResult = "No game has been searched."
     static let noServiceResult = "There is no favourites found."
   }
+  static let shared = FavoritesViewModel()
   var stateChangeHandler: Callback<FavoritesViewController.State>?
   var favoriteGames: [Game]?
   var filteredGames: [Game]?
@@ -40,26 +41,42 @@ public final class FavoritesViewModel {
     }
   }
   func fetchFavoriteGames() {
-      if let favoriteGameObjects = coreDataManager.fetchData() {
-          favoriteGames = favoriteGameObjects.compactMap { createFavoriteGameModel(from: $0) }
-      }
+    if let favoriteGameObjects = coreDataManager.fetchData() {
+      favoriteGames = favoriteGameObjects.compactMap { createFavoriteGameModel(from: $0) }
+    }
     loadUI()
   }
   private func createFavoriteGameModel(from object: NSManagedObject) -> Game? {
-      guard
-          let id = object.value(forKey: "id") as? Int,
-          let name = object.value(forKey: "name") as? String,
-          let backgroundImage = object.value(forKey: "backgroundImage") as? String,
-          let metacritic = object.value(forKey: "metacritic") as? Int,
-          let genres = object.value(forKey: "genres") as? String
-      else {
-          return nil
-      }
+    guard
+      let id = object.value(forKey: "id") as? Int,
+      let name = object.value(forKey: "name") as? String,
+      let backgroundImage = object.value(forKey: "backgroundImage") as? String,
+      let metacritic = object.value(forKey: "metacritic") as? Int,
+      let genres = object.value(forKey: "genres") as? String
+    else {
+      return nil
+    }
     return Game(id: id, name: name, backgroundImage: backgroundImage, metacritic: metacritic, genres: parseGenresString(genres))
   }
   func parseGenresString(_ genresString: String) -> [Genre] {
-      let genreNames = genresString.components(separatedBy: ", ")
-      let genres = genreNames.map { Genre(name: $0) }
-      return genres
+    let genreNames = genresString.components(separatedBy: ", ")
+    let genres = genreNames.map { Genre(name: $0) }
+    return genres
+  }
+  func removeFavoriteGame(forRowAt indexPath: IndexPath) {
+    var removeFavoriGame: Game?
+    if isSearching {
+      guard var filteredGames = filteredGames else { return }
+      removeFavoriGame = filteredGames[indexPath.row]
+      filteredGames.remove(at: indexPath.row)
+    } else {
+      guard let favoriteGames = favoriteGames else { return }
+      removeFavoriGame = favoriteGames[indexPath.row]
+    }
+    if let removeFavoriGame = removeFavoriGame,
+       let favoriteGame = coreDataManager.fetchFavoriteGame(by: removeFavoriGame.id) {
+      coreDataManager.deleteData(delete: favoriteGame)
+      stateChangeHandler?(.removeFavoriteGame)
+    }
   }
 }

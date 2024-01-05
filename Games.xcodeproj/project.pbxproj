@@ -30,6 +30,9 @@
 		8155C55D2B3C02F400B1A2F6 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8155C55A2B3C02F400B1A2F6 /* Roboto-Regular.ttf */; };
 		8155C55E2B3C02F400B1A2F6 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8155C55B2B3C02F400B1A2F6 /* Roboto-Bold.ttf */; };
 		815AB5A52B388BE0007726DE /* GameItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815AB5A42B388BE0007726DE /* GameItemTableViewCell.swift */; };
+		816DE8202B46FCF4005D3CF0 /* CustomTableViewAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DE81F2B46FCF4005D3CF0 /* CustomTableViewAdaptor.swift */; };
+		816DE8242B483B89005D3CF0 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DE8232B483B89005D3CF0 /* UIViewController+Extensions.swift */; };
+		816DE8262B484119005D3CF0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DE8252B484119005D3CF0 /* Extensions.swift */; };
 		8177FBC42B3DAC1D00C97CDD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177FBC32B3DAC1D00C97CDD /* TabBarController.swift */; };
 		8177FBC72B3DAD0700C97CDD /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177FBC62B3DAD0700C97CDD /* FavoritesViewController.swift */; };
 		81E280452B33191A00C22BA5 /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E280442B33191A00C22BA5 /* GamesViewModel.swift */; };
@@ -78,6 +81,9 @@
 		8155C55A2B3C02F400B1A2F6 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		8155C55B2B3C02F400B1A2F6 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		815AB5A42B388BE0007726DE /* GameItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameItemTableViewCell.swift; path = "Games/ UIComponents/GameItemTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		816DE81F2B46FCF4005D3CF0 /* CustomTableViewAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewAdaptor.swift; sourceTree = "<group>"; };
+		816DE8232B483B89005D3CF0 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		816DE8252B484119005D3CF0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8177FBC32B3DAC1D00C97CDD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8177FBC62B3DAD0700C97CDD /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		81E280442B33191A00C22BA5 /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 		8122444E2B34828A005DB969 /* CarbonComponents */ = {
 			isa = PBXGroup;
 			children = (
+				816DE81F2B46FCF4005D3CF0 /* CustomTableViewAdaptor.swift */,
 				8122444C2B3481AF005DB969 /* SpacingComponent.swift */,
 				8122444F2B3482A9005DB969 /* IdentifiableComponent.swift */,
 			);
@@ -317,6 +324,8 @@
 			children = (
 				81E2804B2B345C8100C22BA5 /* Typealias.swift */,
 				81E2804D2B346D1100C22BA5 /* UIView+Extensions.swift */,
+				816DE8232B483B89005D3CF0 /* UIViewController+Extensions.swift */,
+				816DE8252B484119005D3CF0 /* Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -504,7 +513,9 @@
 			files = (
 				811994AC2B3DBCAE00CF80F3 /* FavoritesViewModel+UI.swift in Sources */,
 				812244582B3577C8005DB969 /* GamesViewModel+Service.swift in Sources */,
+				816DE8202B46FCF4005D3CF0 /* CustomTableViewAdaptor.swift in Sources */,
 				811994B22B3DBCED00CF80F3 /* FavoritesViewController+State.swift in Sources */,
+				816DE8242B483B89005D3CF0 /* UIViewController+Extensions.swift in Sources */,
 				81E280472B343AE800C22BA5 /* GamesViewModel+UI.swift in Sources */,
 				81FCE6732B3C616900E526CA /* CustomButtonView.swift in Sources */,
 				81F25C392B3AC9BF004EDFD3 /* EmptyStateView.swift in Sources */,
@@ -514,6 +525,7 @@
 				8119A9AC2B31773F008B2412 /* GamesViewController.swift in Sources */,
 				81F25C402B3B0201004EDFD3 /* GameDetailsViewModel+UI.swift in Sources */,
 				811994B42B3EFF8F00CF80F3 /* GameItemCell.swift in Sources */,
+				816DE8262B484119005D3CF0 /* Extensions.swift in Sources */,
 				815AB5A52B388BE0007726DE /* GameItemTableViewCell.swift in Sources */,
 				811994AA2B3DBCA400CF80F3 /* FavoritesViewModel.swift in Sources */,
 				8119A9A82B31773F008B2412 /* AppDelegate.swift in Sources */,
