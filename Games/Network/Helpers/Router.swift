@@ -10,19 +10,20 @@ import Alamofire
 
 public enum Router: URLRequestConvertible {
   case getGames
+  case getGamesPage(_ page: Int)
   case getGameDetails(_ gameId: Int)
   var baseURL: URL {
     return URL(string: "https://api.rawg.io/api")!
   }
   private var method: HTTPMethod {
     switch self {
-    case .getGames, .getGameDetails:
+    case .getGames, .getGamesPage, .getGameDetails:
       return .get
     }
   }
   var path: String {
     switch self {
-    case .getGames:
+    case .getGames, .getGamesPage:
       return "/games"
     case .getGameDetails(let gameId):
       return "/games/\(gameId)"
@@ -32,11 +33,18 @@ public enum Router: URLRequestConvertible {
     switch self {
     case .getGames, .getGameDetails:
       return ["key": "3be8af6ebf124ffe81d90f514e59856c"]
+    case .getGamesPage(let page):
+      return
+      [
+        "key": "3be8af6ebf124ffe81d90f514e59856c",
+        "page": "\(page)",
+        "page_size": "10"
+      ]
     }
   }
   private var headers: HTTPHeaders {
     switch self {
-    case .getGames, .getGameDetails:
+    case .getGames, .getGamesPage, .getGameDetails:
       return [:]
     }
   }
