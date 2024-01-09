@@ -12,7 +12,6 @@ import UIKit
 class CustomTableViewAdapter: UITableViewAdapter {
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
-      print("İ: \(indexPath.row)")
       showDeleteConfirmationPopup(forRowAt: indexPath)
     }
   }

@@ -10,7 +10,7 @@ import SnapKit
 import Carbon
 
 class GamesViewController: UIViewController {
-  private var viewModel = GamesViewModel()
+  private var viewModel = GamesViewModel.shared
   private let searchContainerView = UIView()
   private let searchBar = UISearchBar()
   var isReturningFromDetailVC = false
@@ -21,7 +21,7 @@ class GamesViewController: UIViewController {
     return tableView
   }()
   private lazy var renderer = Renderer(
-    adapter: UITableViewAdapter(),
+    adapter: PagenationTableViewAdaptor(),
     updater: UITableViewUpdater()
   )
   override func viewDidLoad() {
@@ -48,7 +48,11 @@ class GamesViewController: UIViewController {
       case .removeTopView:
         self.hiddenTopView()
       case .addLoadingIndicator:
-        self.viewModel.loadActivityIndicatorUI()
+        self.viewModel.isLoading = false
+        self.viewModel.loadUI()
+      case .removeLoadingIndicator:
+        self.viewModel.isLoading = true
+        self.viewModel.loadUI()
       case .tapGestureHandler(let gameId):
         self.tapGestureHandler(gameId)
       }
