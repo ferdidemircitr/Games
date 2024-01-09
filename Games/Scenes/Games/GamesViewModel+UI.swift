@@ -49,16 +49,23 @@ public extension GamesViewModel {
   }
   private func makeNodesForAllGames() -> [CellNode] {
     guard let allGames = allGames else {
-      return [makeEmptyStateViewNode(message: Const.noServiceResult)]
+      return [makeActivityIndicatorViewNode()]
     }
     if allGames.isEmpty {
       return [makeEmptyStateViewNode(message: Const.noServiceResult)]
     }
-    return allGames.flatMap { game in
-      [
+    var nodes: [CellNode] = []
+    if !isLoading && !nodes.isEmpty { // Eğer loading durumu true ise ve nodes dizisi boş değilse
+      nodes.append(contentsOf: allGames.compactMap { game in
         makeGameItemNode(item: game)
-      ]
+      })
+      nodes.append(makeActivityIndicatorViewNode())
+    } else {
+      nodes.append(contentsOf: allGames.compactMap { game in
+        makeGameItemNode(item: game)
+      })
     }
+    return nodes
   }
   private func makeGameItemNode(item: Game) -> CellNode {
     var component = GameComponent(item: item)

@@ -30,6 +30,7 @@
 		8155C55D2B3C02F400B1A2F6 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8155C55A2B3C02F400B1A2F6 /* Roboto-Regular.ttf */; };
 		8155C55E2B3C02F400B1A2F6 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8155C55B2B3C02F400B1A2F6 /* Roboto-Bold.ttf */; };
 		815AB5A52B388BE0007726DE /* GameItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815AB5A42B388BE0007726DE /* GameItemTableViewCell.swift */; };
+		816C233C2B4D1577005B9144 /* PagenationTableViewAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816C233B2B4D1577005B9144 /* PagenationTableViewAdaptor.swift */; };
 		816DE8202B46FCF4005D3CF0 /* CustomTableViewAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DE81F2B46FCF4005D3CF0 /* CustomTableViewAdaptor.swift */; };
 		816DE8242B483B89005D3CF0 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DE8232B483B89005D3CF0 /* UIViewController+Extensions.swift */; };
 		816DE8262B484119005D3CF0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816DE8252B484119005D3CF0 /* Extensions.swift */; };
@@ -81,6 +82,7 @@
 		8155C55A2B3C02F400B1A2F6 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		8155C55B2B3C02F400B1A2F6 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		815AB5A42B388BE0007726DE /* GameItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameItemTableViewCell.swift; path = "Games/ UIComponents/GameItemTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		816C233B2B4D1577005B9144 /* PagenationTableViewAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagenationTableViewAdaptor.swift; sourceTree = "<group>"; };
 		816DE81F2B46FCF4005D3CF0 /* CustomTableViewAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewAdaptor.swift; sourceTree = "<group>"; };
 		816DE8232B483B89005D3CF0 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		816DE8252B484119005D3CF0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				816DE81F2B46FCF4005D3CF0 /* CustomTableViewAdaptor.swift */,
+				816C233B2B4D1577005B9144 /* PagenationTableViewAdaptor.swift */,
 				8122444C2B3481AF005DB969 /* SpacingComponent.swift */,
 				8122444F2B3482A9005DB969 /* IdentifiableComponent.swift */,
 			);
@@ -547,6 +550,7 @@
 				81FCE6792B3D715400E526CA /* CoreDataManager.swift in Sources */,
 				812244562B35731F005DB969 /* ActivityIndicatorView.swift in Sources */,
 				81F25C3E2B3B014C004EDFD3 /* GameDetailsViewModel.swift in Sources */,
+				816C233C2B4D1577005B9144 /* PagenationTableViewAdaptor.swift in Sources */,
 				8119A9AA2B31773F008B2412 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
